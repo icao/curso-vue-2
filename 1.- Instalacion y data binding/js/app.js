@@ -13,10 +13,10 @@
 // Vue.js
 
 new Vue({
-   el: 'main',
-   data: {
-      mensaje: 'Hola Mundo'
-   }
+  el: 'main',
+  data: {
+    mensaje: 'Hola Mundo'
+  }
 });
 
 

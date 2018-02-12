@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Renderizado de listas</title>
+</head>
+
+<body>
+<main>
+  <!-- Ejemplo con un array -->
+  <ul>
+    <li v-for="dia in dias">{{dia}}</li>
+  </ul>
+  <hr>
+
+  <!-- Ejemplo con un array de objetos (colección) -->
+  <ol>
+    <li v-for="(persona, index) in personas"> 
+       {{persona.nombre}}
+      <small>
+        | {{persona.nacionalidad}} - {{index}}
+      </small>
+    </li>
+  </ol>
+  <hr>
+
+  <!-- Ejemplo con  objetos --> 
+  <ul>
+    <li v-for="(value, key, index) in perro">
+      {{index}} - {{key}}: {{value}}
+    </li>
+  </ul>
+  
+
+  <pre>{{$data}}</pre>
+
+  v-for: Renderiza una lista dada desde un array o un objeto
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="./js/app.js"></script>
+</body>
+
+</html>

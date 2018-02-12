@@ -1,33 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Directivas Incluidas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Directivas Incluidas</title>
 </head>
+
 <body>
-   <main>
-      <h1 v-show="presente">Estoy presente </h1>
-      <hr>
+<main>
+  <h1 v-show="presente">Estoy presente </h1>
+  <hr>
 
-      <h1 v-if="conectado">Estoy Conectado</h1>
+  <h1 v-if="conectado">Estoy Conectado</h1>
 
-      <h2 v-if="edad < 18">No puedes entrar</h2>
-      <h2 v-if="edad > 18">Eres inmortal</h2>
-      <h2 v-else>Puedes entrar</h2>
+  <h2 v-if="edad < 18">No puedes entrar</h2>
+  <h2 v-else-if="edad > 150">Eres inmortal :O</h2>
+  <h2 v-else>Puedes entrar</h2>
 
-      <pre>{{$data}}</pre>
+  <hr>
+  <template v-if="conectado">
+    <h2>Me llamo César</h2>
+    <ul>
+      <li> Me gusta del Front End:
+        <ol>
+          <li>
+            <a href="#">Vue.js</a>
+            <a href="#">CSS</a>
+            <a href="#">Animaciones</a>
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </template>
+  <h2 v-else>No estas conectado :P</h2>
 
-      <!--
-            v-show = Es una directiva que muestra u oculta elementos dependiendo de un valor boleano
-            v-if = Es una directiva que muestra u oculta elementos dependiendo de la condicion
 
-            Diferencia:  v-show cambia la propiedad del elemento a display none, 
-            y v-if elimina el elemento del DOM.
-      -->
-   </main>
-   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-   <script src="./js/app.js"></script>
+  <pre>{{$data}}</pre>
+
+  <!--
+  v-show = Es una directiva que muestra u oculta elementos dependiendo de un valor boleano
+  v-if = Es una directiva que muestra u oculta elementos dependiendo de la condicion
+
+  Diferencia:  v-show cambia la propiedad del elemento a display none,
+  y v-if elimina el elemento del DOM.
+  -->
+
+  <!--
+  <template> = Una directiva que nos permite encapsular còdigo que nos ayuda a evaluar el
+  contenido como un conjunto sin necesidad de agruparlo en otras etiquetas que
+  nos ensucien el html.
+  La ventaja es que la etiqueta <template> no se ce renderizada en el DOM
+  -->
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="./js/app.js"></script>
 </body>
+
 </html>
