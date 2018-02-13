@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Eventos</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link rel="stylesheet" href="../100.- Extra tools/style.css">
+</head>
+
+<body>
+<main>
+
+  <ol>
+    <li v-for="tarea in tareas">{{ tarea }}</li>
+  </ol>
+
+  <!-- Agrego tareas con cada tecla :P -->
+  <!-- <input type="text" v-model="nuevaTarea" v-on:keyup="agregarTarea"> -->
+
+  <!-- Agrego tareas cuando terminas y das enter -->
+  <!-- <input type="text" v-model="nuevaTarea" v-on:keyup.enter="agregarTarea"> -->
+
+  <!-- Agrego tareas cuando terminas y das click -->
+  <!-- <input type="text" v-model="nuevaTarea">
+  <button v-on:click="agregarTarea">Agregar</button>  -->
+
+  <!-- Con FORMULARIO agrego tareas cuando terminas y das click -->
+  <form v-on:submit.prevent="agregarTarea">
+      <input type="text" v-model="nuevaTarea">
+      <button >Agregar</button> 
+  </form>
+  
+  <pre>{{$data}}</pre>
+
+  <!-- 
+    v-on = Es una directiva que controla los eventos en el DOM.
+    Se especifican los tipos de eventos que se pueden ejecutar
+    y se le especifica que tipo de evento es el que va a escuchar,
+    en este caso 'click'.
+    v-on:[tipo_de_evento]
+
+    [tipo_de_evento]:  click, keyup, enter, keyup.enter, submit, etc
+   -->
+
+   <!-- Las funciones tienen que estar dentro de la instancia Vue -->
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="./js/app.js"></script>
+</body>
+
+</html>
