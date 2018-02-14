@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Propiedades Computadas</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link rel="stylesheet" href="../100.- Extra tools/style.css">
+</head>
+
+<body>
+<main>
+  <h2>{{ mensaje }}</h2>
+  <h2>{{ mensajeAlReves }}</h2>
+  
+  
+  <form v-on:submit.prevent="agregarPelicula">
+      <input type="text" v-model="nuevaPelicula">
+      <button >Agregar</button> 
+  </form>
+
+  <ol>
+    <li v-if="pelicula.nominada" v-for="pelicula in peliculas">
+      {{ pelicula.titulo }}
+    </li>
+  </ol>
+
+  <pre>{{$data}}</pre>
+
+  <!-- 
+    Las propiedades computadas tienen su propio objeto que se llama 'computed',
+  se pueden agregar cualquier elemento que haga de propiedadcomputada, devolvera
+  un valor que va a ser interpolada en la vista. 
+-->
+
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="./js/app.js"></script>
+</body>
+
+</html>
