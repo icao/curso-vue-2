@@ -22,7 +22,7 @@
   </form>
 
   <ol>
-    <li v-if="pelicula.nominada" v-for="pelicula in peliculas">
+    <li v-for="pelicula in peliculasPorAntiguedad">
       {{ pelicula.titulo }}
     </li>
   </ol>
@@ -31,9 +31,18 @@
 
   <!-- 
     Las propiedades computadas tienen su propio objeto que se llama 'computed',
-  se pueden agregar cualquier elemento que haga de propiedadcomputada, devolvera
-  un valor que va a ser interpolada en la vista. 
--->
+    se pueden agregar cualquier elemento que haga de propiedad computada, devolverá
+    un valor que va a ser interpolada en la vista. 
+
+    ¿Porque un método o porque una propiedad computada?
+
+    Un método se evalúa constantemente, una computed propertie solo se
+    se evalúa cuando cambian las dependencias.
+    Cuando se usan las computed properties se utiliza una versión cacheada en memoria,
+    en cambio con el método cada ves que se llama se reevalúa el modelo.
+
+    Hay que tenerse en cuenta para decidir si se usara uno u otro.
+  -->
 
 
 </main>

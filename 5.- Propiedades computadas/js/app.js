@@ -28,6 +28,7 @@ const vm = new Vue({
     ]
   },
   methods: {
+    // este metodo agrega un nuevo registro al array peliculas
     agregarPelicula() {
       this.peliculas.unshift({
         titulo: this.nuevaPelicula,
@@ -39,8 +40,17 @@ const vm = new Vue({
     }
   },
   computed: {
+    // Esta propiedad imprime un string al reves
     mensajeAlReves() {
       return this.mensaje.split('').reverse().join('');
+    },
+    // Esta propiedad filtra todas las peliculas nominadas
+    peliculasOrdenadas() { 
+      return this.peliculas.filter((pelicula) => pelicula.nominada);
+    },
+    // Esta propiedad ordena las peliculas por el parametro año
+    peliculasPorAntiguedad() {
+      return this.peliculas.sort((a, b) => a.año - b.año);
     }
   }
   
