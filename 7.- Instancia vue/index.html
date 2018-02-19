@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Instancia Vue</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link rel="stylesheet" href="../100.- Extra tools/style.css">
+</head>
+
+<body>
+
+<main>
+<h2>{{ mensajeMayusculas }}</h2>
+  <pre>{{$data}}</pre>
+
+  <button v-on:click="alReves">Al revés</button>
+</main>
+
+<div id="app">
+  <h2 v-text="mensaje"></h2>
+  <!--
+    Cuando usamos v-text actualizamos el contenido entero,
+    en este caso todo lo que este dendro de <h2></h2>
+    A diferencia del mustache, que solo actualiza esa parte.
+  -->
+  <pre>{{$data}}</pre>
+</div>
+
+<!-- 
+  Vue sigue un patrón  MVVM (Model view view model).
+  Cuando creamos una estancia vue crea un 'proxi' y asocia todas las propiedades 
+  del modelo, accesibles desde fuera, asi como los metodos.
+  Ejemplo: 
+    vm1.mensaje = 'Nuevo Mensaje';  ==> Cambia el mensaje en el modelo.
+    vm1.alReves();  ==> Muestra alreves el mensaje.
+  Esto muestra que VUE es reactivo y que se pueden acceder a estas propiedades
+  desde fuera de la instancia, en este caso desde la terminal.
+
+  ¿Se pueden tener varias instancias?
+  Pueden existir varias instancias vue conviviendo entre si mismas.
+  En este caso tenemos a:
+    <main> - vm1
+    <div id="app"> - vm2
+
+  Se puede hablar de una a la otra, por ejemplo desde la instancia vm1 acceder a vm2
+-->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="./js/app.js"></script>
+</body>
+
+</html>

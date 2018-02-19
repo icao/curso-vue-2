@@ -41,7 +41,7 @@
   <hr>
 
   <h2>Buscar</h2>
-  <input type="text" placeholder="Buscar juego" v-model="busqueda">
+  <input type="search" placeholder="Buscar juego" v-model="busqueda">
   
   <ol>
     <li v-for="juego in buscarJuego">
@@ -49,7 +49,27 @@
     </li>
   </ol>
 
+  <hr>
+
+  <h2>Aplicando filtro Uppercase</h2>
+  <ol>
+    <li v-for="juego in buscarJuego">
+      {{ juego.titulo | uppercase }}
+    </li>
+  </ol>
+
+
+
   <pre>{{$data}}</pre>
+
+  <!-- 
+    Por recomendación de vue.js, los filtros tienen que estar implementados 
+    atraves de las computed properties, dentro de la instancia vue. 
+
+    Esto no limita a que se puedan usar filtros como se hacia en vue 1,
+    pero se tienen que declarar por medio del método filter antes de la instancia vue.
+  -->
+
 
 </main>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>

@@ -1,5 +1,8 @@
 
 'use strict';
+// Si se quiere usar el método filter() de vue, se tiene que 
+// declarar antes de la instancia vue.
+Vue.filter('uppercase', (valor) => valor.toUpperCase());
 
 const vm = new Vue({
   el: 'main',
@@ -31,9 +34,11 @@ const vm = new Vue({
     ]
   },
   computed: {
+    // Filtro por propiedades
     mejoresJuegos() { 
       return this.juegos.filter((juego) => juego.puntuacion >= this.puntuacionMinima);
     },
+    // Filtro por coincidencia en propiedades
     buscarJuego() {
       return this.juegos.filter((juego) => juego.titulo.includes(this.busqueda));
     }
