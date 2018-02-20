@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data binding en atributos y clases</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link rel="stylesheet" href="../100.- Extra tools/style.css">
+  <style>
+    li {
+      cursor: pointer;
+    }
+
+    .completado{
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h2>{{ tareasCompletadas.length }} completadas</h2>
+  <ol>
+    <li
+    :class="{completado: tarea.completado}"
+    @click="completarTarea(tarea)" 
+    v-for="tarea in tareas">
+      {{ tarea.titulo }}
+    </li>
+  </ol>
+
+<!-- 
+  Algunas directivas pueden ser expresadas con su shortcut
+    v-bind:class ==> :class
+    v-on:click ==> @click 
+-->
+
+<!-- 
+  Cuando usamos el binding de class, tenemos que contemplar el siguiente 
+  esquema:
+
+  :class="{ key value }"
+  
+  Donde:
+    key = clases CSS
+    value = Modelo que voy a asociar 
+  
+  Ejemplo:
+    :class="{completado: tarea.completado}"
+
+Asocia el atributo clase  v-bind,
+añade la clase si la condicion es verdadera y no la añadas si es falsa
+-->
+  <pre>
+    {{ $data }}
+  </pre>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="./js/app.js"></script>
+</body>
+
+</html>
