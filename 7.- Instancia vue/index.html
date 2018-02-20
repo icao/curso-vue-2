@@ -23,7 +23,7 @@
   <h2 v-text="mensaje"></h2>
   <!--
     Cuando usamos v-text actualizamos el contenido entero,
-    en este caso todo lo que este dendro de <h2></h2>
+    en este caso todo lo que este dentro de <h2></h2>
     A diferencia del mustache, que solo actualiza esa parte.
   -->
   <pre>{{$data}}</pre>
@@ -32,12 +32,19 @@
 <!-- 
   Vue sigue un patrón  MVVM (Model view view model).
   Cuando creamos una estancia vue crea un 'proxi' y asocia todas las propiedades 
-  del modelo, accesibles desde fuera, asi como los metodos.
+  del modelo, accesibles desde fuera, así como los métodos.
   Ejemplo: 
     vm1.mensaje = 'Nuevo Mensaje';  ==> Cambia el mensaje en el modelo.
-    vm1.alReves();  ==> Muestra alreves el mensaje.
+    vm1.alReves();  ==> Muestra alrevés el mensaje.
   Esto muestra que VUE es reactivo y que se pueden acceder a estas propiedades
   desde fuera de la instancia, en este caso desde la terminal.
+
+  Si yo a vm1 le agrego desde fuera una nueva propiedad como:
+    vm1.nombre = 'John Doe';
+  NO tendré la reactividad asegurada, ya que al momento de crearse 
+  la instancia de Vue(), crea algunas propiedades (seters, geters) que
+  nos brindan la reactividad, en este caso como la propiedad se crea
+  después y desde fuera, no tenemos reactividad.
 
   ¿Se pueden tener varias instancias?
   Pueden existir varias instancias vue conviviendo entre si mismas.
