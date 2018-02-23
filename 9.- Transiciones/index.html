@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data binding en atributos y clases</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link rel="stylesheet" href="../100.- Extra tools/style.css">
+  <style>
+    /*
+    La entrada y la animacion de salida puede usar diferentes
+    duraciones y tiempo.
+    */
+
+    .slide-fade-enter-active {
+      transition: all .8s ease;
+      color: red;
+    }
+
+    .slide-fade-leave-active {
+      color:orange;
+      transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+
+    .slide-fade-enter,
+    .slide-fade-leave-to
+    /* .slide-fade-leave-active below version 2.1.8 */
+
+    {
+      /* transform: translateX(10px); */
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <button @click="mostrar = !mostrar">Mostrar / Ocultar</button>
+    <transition name="slide-fade">
+      <h1 v-if="mostrar">
+        {{mensajes.transicion}}
+      </h1>
+    </transition>
+    <pre>
+    {{ $data }}
+  </pre>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
