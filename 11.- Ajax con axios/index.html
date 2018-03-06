@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ajax con axios</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link rel="stylesheet" href="../100.- Extra tools/style.css">
+</head>
+
+<body>
+<main>
+  <img 
+    v-for="usuario in usuarios" 
+    :src="usuario.picture.thumbnail" 
+    :alt="usuario.name.first">
+  <pre>
+    {{$data}}
+  </pre>
+  
+  <!-- 
+    DOCUMENTACIÓN EN ESPAÑOL
+    https://es-vuejs.github.io/vuejs.org/v2/guide/components.html 
+  -->
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./js/app.js"></script>
+</body>
+
+</html>
