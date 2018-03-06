@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Data binding en atributos y clases</title>
+  <title>Transiciones</title>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../100.- Extra tools/style.css">
   <style>
 
@@ -19,7 +20,7 @@
     }
 
     .slide-fade-enter-active {
-      transition: all .5s ease;
+      transition: opacity 1s;
     }
 
     .slide-fade-leave-to {
@@ -27,32 +28,96 @@
     }
 
     .slide-fade-leave-active {
-      transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+      transition: opacity 1s;
     }
     
     /*
-    * Tranciciones CSS
+    * Animaciones CSS
     ************************************/
+
+    /* Animación de entrada */
+    .bounce-enter-active {
+      animation: bounce-in .5s;
+    }
+    /* Misma animación de salida */
+    .bounce-leave-active {
+      animation: bounce-in .5s reverse; 
+    }
+    @keyframes bounce-in {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
 
   </style>
 </head>
 
-<body>
+<body> 
   <main>
+
     <button @click="mostrar = !mostrar">Mostrar / Ocultar</button>
 
-    <transition name="slide-fade">
-      <h1 v-if="mostrar">
-        {{mensajes.transicion}}
-      </h1>
+    <!-- Tranciciones CSS -->
+    <transition name="slide-fade" appear>
+      <h1 v-if="mostrar" v-text="mensajes.transicion"></h1>
     </transition>
+
+
+    <!-- Animaciones CSS -->
+    <transition name="bounce">
+      <h1 v-if="mostrar" v-text="mensajes.animacion"></h1>
+    </transition>
+    
+
+    <!-- Animaciones Custom -->
+    <transition 
+      name="animate.css"
+      enter-active-class="animated fadeInDown"
+      leave-active-class="animated fadeOutDown">
+        <h1 v-if="mostrar" v-text="mensajes.animacionCustom"></h1>
+    </transition>
+
+
+    <!-- Tranciciones entre diferentes elementos -->
+    <transition name="slide-fade" mode="out-in">
+      <h1 v-if="mostrar" v-text="mensajes.entreElementos" key="aparecer"></h1>
+      <h1 v-else key="ocultar">No hay mensaje</h1>
+      <!-- 
+        No Hay problema cuando hay transicion entre
+        diferentes elementos, pero cuando se tienen dos mismos
+        elementos entre una transición, se necesita añadir una key,
+        que indicará que no se traten como un igual los elementos
+
+        Hay un momento en el que se montan los elementos una vez que desaparece uno
+        y aparece otro elemento, se observa un comportamiento raro en las
+        transiciones, donde el elemento que aparece(en este caso v-else)
+        se ve movido bruscamente al inicio.
+
+        Para solucionarlo se hace uso de el atributo llamados
+          Transitions modes:
+            in-out
+            out-in
+        Uso:
+          Se agrega el atributo mode="[transition_mode]" dentro del componente
+        
+        IMPORTNTE: En atributo "name" tiene que ir una TRANSICION, no animacion.
+      -->
+    </transition>
+
     <pre>
-    {{ $data }}
-  </pre>
+      {{$data}}
+    </pre>
+
   </main>
 
   <!-- 
-    Cuando se estan haciendo tranciciones desde vue, necesitamos declarar ciertos formatos en nuestras clases
+    Cuando se estan haciendo transiciones desde vue, necesitamos declarar ciertos formatos en nuestras clases
     pueder ver mas acerca de animaciones en la documentacion oficial,
     acontinuacione tenemos varios ejemplos:
 
@@ -81,23 +146,39 @@
         Nuestro contenido...
       </transition>
 
-  Tenemos que poner nuestro nombre de la clase,
-  en nuestro CSS quedaria:
+  Tenemos que poner nuestro nombre de la clase, en nuestro CSS quedaria:
     .slide-fade-enter {...} 
     .slide-fade-enter-active {...} 
     .slide-fade-leave-to {...} 
     .slide-fade-leave-active {...}
 
+    3.- Animaciones CSS:
+      Requiere 2 estados:
+        v-enter-active ---- v-leave-active
+      Se usa el mismo template en el HTML y el CSS quedaria similar a:
+      .bounce-enter-active {...}
+      .bounce-leave-active {...inverso al enter-active...}
+      @keyframes bounce-in {...}
 
-
-
-
-
-
-    NOTA: Revisar la documentacion.
-      
+    NOTA: Revisar la documentacion para mas casos.
   -->
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  <!-- 
+    Animate.css
+    Para implementar las animaciones con esta libreria,
+    tenemos que estructurar en nuestro template(transition) 3 atributos:
+    
+    name ==> nombre_custom
+    enter-active-class ==> animación_de_entrada
+    leave-active-class ==> animación_de_salida
+   -->
+
+   <!-- 
+     Para agregar animación en al momento del renderizado, basta con 
+     poner el atributo "appear" en el componente de transition.
+    -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="./js/app.js"></script>
 </body>
 
