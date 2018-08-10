@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Component Properties</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link rel="stylesheet" href="../100.- Extra tools/style.css">
+</head>
+
+<body>
+  <main>
+    <!-- PASANDO DATOS AL COMPONENTE POR MEDIO DE PROPS -->
+    <!-- Atributo sin binding -->
+    <!-- <creador nombre="creador"></creador> -->
+
+    <!-- Atributo bindeado -->
+    <!-- <creador :nombre="creador"></creador> -->
+
+    <!-- Atributos evaluados  -->
+    <creador :nombre="creador" :edad="99" programas="1000"></creador>
+
+    
+    <!-- A nuestros componentes, les podemos pasar datos dinamicos, mediante lo que se concen como 'props'. 
+    En este caso nosotros pasamos los datos alcomponente declarando el atributo 'nombre'.
+    Si pones atención observarás que el atributo esta bindeado, ya sea que se usa 'v-bind:'' ó ':' 
+    Al bindear nuestros atributos, le decimos a Vue que sus valores sean evaluados.
+    En caso contrario seran interpretados por default como strings-->
+
+    <!-- Si una propiedad se actualiza en el padre, automaticamente se propaga en su hijos.
+    Esto es conocido como 'One-way data flow', hay que tener en consideración que esto no puedeocurrir de hijos a padre.-->
+
+
+    <pre>{{$data}}</pre>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
