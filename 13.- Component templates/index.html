@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Component Templates</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link rel="stylesheet" href="../100.- Extra tools/style.css">
+</head>
+
+<body>
+  <main>
+
+    <!-- Con template: Template String ES6 -->
+    <elegir-ganador :listado="personas"></elegir-ganador>
+
+    <!-- Con inline template -->
+    <!-- Esta form tiene demasiadas desventajas, ya que no se respeta el principio de reutilización. -->
+    <!-- <elegir-ganador :listado="personas" inline-template>
+      <section>
+        <h2 v-if="ganador">El ganador es {{ ganador }}</h2>
+        <template v-else="!ganador">
+          <ul>
+            <li v-for="persona in listado">{{persona}}</li>
+          </ul>
+        </template>
+        <button @click="elegirGanador">Escoger Ganador</button>
+      </section>
+    </elegir-ganador> -->
+
+    <pre>{{$data}}</pre>
+  </main>
+
+  <!-- OTRAS FORMAS SON LAS SIGUIENTES EN BASE A ENVOLVERLAS EN ETIQUETAS -->
+
+  <!-- Con TAG template  -->
+  <!-- <template id="elegir-ganador-template">
+    <section>
+      <h2 v-if="ganador">El ganador es {{ ganador }}</h2>
+      <template v-else="!ganador">
+        <ul>
+          <li v-for="persona in listado">{{persona}}</li>
+        </ul>
+      </template>
+      <button @click="elegirGanador">Escoger Ganador</button>
+    </section>
+  </template> -->
+
+  <!-- Con TAG script  -->
+  <!-- <script  type="text/template" id="elegir-ganador-template">
+    <section>
+      <h2 v-if="ganador">El ganador es {{ ganador }}</h2>
+      <template v-else="!ganador">
+        <ul>
+          <li v-for="persona in listado">{{persona}}</li>
+        </ul>
+      </template>
+      <button @click="elegirGanador">Escoger Ganador</button>
+    </section>
+  </script> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
