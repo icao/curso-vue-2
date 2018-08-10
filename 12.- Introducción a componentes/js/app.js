@@ -10,7 +10,7 @@ Vue.component('mis-tareas', {
         this.tareas = response.data;
       });
   },
-  // Funcion data()
+  // Funcion data(): Una nueva instancia de data dentro del componente.
   data() {
     // El componente busca la fuente de datos ya desde dentro
     return {
@@ -32,6 +32,9 @@ new Vue({
  * 
  * Los componentes tienen las mismas propiedades que la instancia Vue,
  * por lo que igual pueden ser declaradas dentro de un componente.
+ * 
+ * Ahora el modelo de datos es unicamente del componente,
+ * el data ya no es el mismo que el de la instancia de vue.
  */
 
 

@@ -11,40 +11,40 @@
 </head>
 
 <body>
-<main>
+  <main>
 
-  <!-- <ul>
-    <li v-for="tarea in tareasAjax">{{tarea.title}}</li>
-  </ul> -->
-
-  <!-- teniendo este tipo de componente, la entrada es dinamica,
-  se podría decir que es un componente dinamico. -->
-
-  <!-- <h2>Tareas Ajax</h2>
-  <mis-tareas :tareas="tareasAjax"></mis-tareas>
-
-  <hr>
-
-  <h2>Tareas Locales</h2>
-  <mis-tareas :tareas="tareasLocales"></mis-tareas> -->
+    <!-- RENDERIZACION DE LISTA CON INSTANCIA VUE -->
+    <!-- <ul>
+      <li v-for="tarea in tareasAjax">{{tarea.title}}</li>
+    </ul> -->
 
 
-  <!-- Aqui tengo el componente ya solo con su propio modelo,
-  es decir, el modelo de datos propio-->
-  <h1>Las tareas</h1>
-  <mis-tareas></mis-tareas>
+    <!-- RENDERIZADO DE LISTA POR COMPONENT, ENTRADAS DINAMICAS: PROPS-->
+    <!-- Teniendo este tipo de componente, la entrada es dinamica, se podría decir que es un componente dinamico. -->
+    <!-- <h2>Tareas Ajax</h2>
+    <mis-tareas :tareas="tareasAjax"></mis-tareas>
 
-  <pre>{{$data}}</pre>
-</main>
-<!-- 
-  Un componente es reusable, reutilizable y encapsula la información.
+    <hr>
 
-  Encapsular una serie de logica en nuestros propios tags de HTML
+    <h2>Tareas Locales</h2>
+    <mis-tareas :tareas="tareasLocales"></mis-tareas> -->
+
+
+    <!-- Componente ya solo con su propio modelo, es decir, el modelo de datos propio y no compartido -->
+    <h1>Las tareas</h1>
+    <mis-tareas></mis-tareas>
+
+    <pre>{{$data}}</pre>
+  </main>
+
+  <!-- 
+ Componente: Encapsular una serie de logica en nuestros propios tags de HTML.
+  Un componente es reusable, reutilizable y encapsula la información, no mutable.
  -->
 
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="./js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 
 </html>
