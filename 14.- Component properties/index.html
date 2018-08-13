@@ -30,7 +30,13 @@
     En caso contrario seran interpretados por default como strings-->
 
     <!-- Si una propiedad se actualiza en el padre, automaticamente se propaga en su hijos.
-    Esto es conocido como 'One-way data flow', hay que tener en consideración que esto no puedeocurrir de hijos a padre.-->
+    Esto es conocido como 'One-way data flow', hay que tener en consideración que esto no puedeocurrir de hijos a padre.
+    Esto previene que los componentes hijo modifiquen accidentalmente el estado del padre, l
+    o cual puede hacer que el fujo de tu aplicación sea díficil de razonar. 
+    Además, cada vez que el componente padre es actualizado, todas las propiedades en el componente hijo serán refrescadas con el último valor. 
+    Esto significa que no deberías modificar una propiedad en un componente hijo. Si lo haces, Vue te advertirá en la consola.
+  
+  -->
 
 
     <pre>{{$data}}</pre>
