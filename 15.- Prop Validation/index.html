@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Prop Validation</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link rel="stylesheet" href="../100.- Extra tools/style.css">
+</head>
+
+<body>
+  <main>
+    <candidato 
+      v-for="(candidato, index) in candidatos"
+      :key="index"
+      :nombre="candidato.name.first"
+      :edad="candidato.dob.age"
+      :correo="candidato.email"
+      :mobil="candidato.cell"
+      :adress="candidato.email"
+      :imagen="candidato.picture.thumbnail">
+    </candidato>
+    <pre>{{$data}}</pre>
+  </main>
+
+  <!-- Template del componente candidato -->
+  <template id="candidato-template">
+    <blockquote>
+      <img :src="imagen" align="right">
+      <h1>{{nombre}}</h1>
+      <h3>{{edad}}</h3>
+      <h3>{{correo}}</h3>
+      <h2>{{mobil}}</h2>
+      <hr>
+    </blockquote>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
