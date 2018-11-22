@@ -17,6 +17,16 @@ Vue.component('candidato', {
     },
     mobil: {
       type: [String, Number]
+    },
+    direccion: {
+      type: Object,
+      default() {
+        return {
+          pais: 'México',
+          estado: 'Guadalajara',
+          municipio: 'Zapopan'
+        };
+      }
     }
   },
   template: '#candidato-template'

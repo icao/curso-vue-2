@@ -19,9 +19,23 @@
       :edad="candidato.dob.age"
       :correo="candidato.email"
       :mobil="candidato.cell"
-      :adress="candidato.email"
+      :direccion="candidato.location"
       :imagen="candidato.picture.thumbnail">
     </candidato>
+
+
+    <!-- CONPONENTE SIN PASARLE LA DIRECCION, TOMARIA COMO DEFAUL UN OBJETO DECLARADO EN LA VALIDACION DE LA PROPIEDAD  -->
+    <!-- 
+      <candidato 
+      v-for="(candidato, index) in candidatos"
+      :key="index"
+      :nombre="candidato.name.first"
+      :edad="candidato.dob.age"
+      :correo="candidato.email"
+      :mobil="candidato.cell"
+      :imagen="candidato.picture.thumbnail">
+    </candidato> 
+  -->
     <pre>{{$data}}</pre>
   </main>
 
@@ -33,6 +47,13 @@
       <h3>{{edad}}</h3>
       <h3>{{correo}}</h3>
       <h2>{{mobil}}</h2>
+      <ul>
+        <li v-for="(value, key, index) in direccion">
+          {{value}}
+        </li>
+      </ul>
+      <!-- recordemos que para recorrer un objeto, tenemos que pasar los 3 parameros:
+      value, key e index. -->
       <hr>
     </blockquote>
   </template>
