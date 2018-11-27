@@ -1,8 +1,12 @@
 'use strict';
 
-new Vue({
-  el: 'main',
-  data: {
-    mensaje: `Hola Slots & Named Slots`
-  }
+
+Vue.component('alerta', {
+
+  template: '#alerta-template'
 });
+
+new Vue({
+  el: 'main'
+});
+
