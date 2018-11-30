@@ -13,23 +13,50 @@
 
 <body>
   <main>
-    <alerta></alerta> 
+    <alerta></alerta>
+    <!-- NOTA 1: Nosotros podemos tambian pasar el valor de las props, asignandolas desde los datos en el patametro DATA
+    de nuestro  modelo en la instancia de vue, con la diferencia de que bindeamos 
+    las props de nuestro componente, para que sean evaluadas -->
+    <!-- <alerta :tipo="tipoData" :posicion="posicionData"></alerta> -->
+
+
+    <alerta tipo="alerta--exito" posicion="alerta--arriba-derecha">
+      <!-- Texto que sustituira el por default del slot, junto con la etiqueta de parrafo,
+      si queremos que no agrege la etiqueta, suplantamos por <template> -->
+      <!-- <p>Este es el nuevo contenido del alerta</p> -->
+      <template slot="header">✔️ Soy el NUEVO HEADER</template>
+      <template>Este es el nuevo contenido del alerta EXITOSO</template>
+      <template slot="footer">Soy el nuevo FOOTER</template>
+    </alerta>
+
+    <alerta tipo="alerta--advertencia" posicion="alerta--abajo-izquierda">
+      <template slot="header">⚠️ Soy el NUEVO HEADER</template>
+      <template>Este es el nuevo contenido del ADVIRTIENDOTE EL FIN DEL MUNDO</template>
+      <template slot="footer">Soy el nuevo FOOTER</template>
+    </alerta>
+
+    <alerta tipo="alerta--error" posicion="alerta--abajo-derecha">
+      <!-- No importa el orden en que son declarados los contenidos de los slots,
+      VUE automaticamente acomoda los elementos acorde al template, usando el
+      atributo slot especificado. -->
+      <template slot="footer">Soy el nuevo FOOTER</template>
+      <template slot="header">🛑 Soy el NUEVO HEADER</template>
+      <template>DEMASIADO TARDE, ESTAMOS PERDIDOS</template>
+    </alerta>
+
+
+
     <pre>{{$data}}</pre>
   </main>
 
-  <template id="alerta-template">
-    <section class="alerta alerta--error alerta--abajo-izquierda">
-      <header class="alerta__header">
-        <p>Soy un el header alerta</p>
-      </header>
-      <div class="alerta__contenido">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate iure repellendus, iusto laudantium inventore sint facere qui, dicta esse eum, pariatur id veritatis explicabo illo sunt libero aliquam. Provident, magni.</p>
-      </div>
-      <footer class="alerta__footer">
-        <p>Soy un FOOTER</p>
-      </footer>
-    </section>
-  </template>
+  <!-- SLOTS -->
+  <!-- Solo puede haber un UNICO slot,
+  si se quieren agregar mas slots, se tiene que nombrar, para ser identificados.
+  Estos son llamados "named slots", tambien pueden contener un texto por defaul y pueden ser reemplazados.
+  -->
+  <!-- Con los SLOTS podemos tener en nuestros templates contenido por default, y ser cambiados
+  especificando en el componente cual va a ser el nuevo contenido y donde tiene que reflejarse,
+  esto especificando dentro del componente en una etiqueta el atributo slot="nombre_slot" -->
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

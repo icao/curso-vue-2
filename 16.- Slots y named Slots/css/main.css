@@ -13,30 +13,30 @@ BEM:  Bloque - Elemento - Modificador
 
 /*Bloques*/
 .alerta {
-   background-color: var(--main-bg-color);
    width: 500px;
    height: auto;
    border-radius: 6px;
    position: absolute;
+   background-color: var(--main-bg-color);
 }
 
 /*Elementos*/
 .alerta__header {
    text-align: center;
-   padding: .6em;
+   padding: .4em;
    box-sizing: border-box;
    font-weight: bold;
    border-bottom: 1px solid rgba(var(--white-color), 0.4);
 }
 .alerta__contenido {
    text-align: center;
-   padding: .6em;
+   padding: .8em;
    box-sizing: border-box;
    font-weight: bold;
 }
 .alerta__footer {
    text-align: center;
-   padding: .6em;
+   padding: .4em;
    box-sizing: border-box;
    font-weight: bold;
    border-top: 1px solid rgba(var(--white-color), 0.4);
