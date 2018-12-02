@@ -28,7 +28,7 @@ Vue.component('elegir-ganador', {
     return {
       ganador: false,
       participantes: this.listado
-    }
+    };
   }
 });
 
