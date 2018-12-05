@@ -12,9 +12,79 @@
 
 <body>
   <main>
-   <mis-tareas></mis-tareas>
+    <mis-tareas :listado="tareas">
+      <!-- Renderizado 1 -->
+      <template slot="tarea" slot-scope="slotProps">
+        <li>{{slotProps.lista.actividad}} - <strong>{{slotProps.lista.hora}}</strong></li>
+      </template>
+    </mis-tareas>
+
+    <mis-tareas :listado="tareas">
+      <!-- Renderizado 2 -->
+      <template slot="tarea" slot-scope="slotProps">
+        <li>
+          <h2>{{slotProps.lista.actividad}} - <strong>{{slotProps.lista.hora}}</strong></h2>
+        </li>
+      </template>
+    </mis-tareas>
+
+    <mis-tareas :listado="tareas">
+      <!-- Renderizado 3 -->
+      <template slot="tarea" slot-scope="slotProps">
+        <li>📚 {{slotProps.lista.actividad}} - <strong>⏰ {{slotProps.lista.hora}}</strong></li>
+      </template>
+    </mis-tareas>
+
+
+    <!-- Para hacer uso del slot y decirle donde se insertaran, hacemos uso de la etiqueta template mas
+    un atributo adicional que indica que se traeran datos del modelo ya declarado en el template especificamente en el slot. 
+    Y despues lo usamos utilizando el valor  de el slot scope com oen el ejemplo.-->
+
+    <!-- Estructura del template
+      <template [atributo_slot-scope]="[nombre_propiedad_slot]"></template> 
+
+      [atributo_slot-scope] = El atributo que nos ofrece Vue para linkear el modelo mandado desde el template del componente,
+      que por nombre siempre sera: "slot-scope"
+
+      [nombre_propiedad_slot] = Nombre que le asignamos al atributo "slote-scope", como son datos que vienen
+      de nuestro slot, vue aconseja poner "slotProps" (propiedades del slot), este toma el valor que se envia 
+      en etse caso desde el slot con :lista="tarea".
+    -->
+    <!-- Una vez dada la estructura, podemos hacer uso de el slot-scope como muetra el ejemplo:
+    {{slotProps.lista.actividad}} 
+    {{[nombre_slot_scope].[nombre_propiedad_del_slot].[valores_modelo]}} 
+    -->
+
     <pre>{{$data}}</pre>
   </main>
+
+
+  <!-- template componente -->
+  <template id="template-listado">
+    <ul>
+      <!-- Con slots -->
+      <slot name="tarea" v-for="tarea in listado" :lista="tarea"></slot>
+      <!-- Para nosotros poder usar los slots y hacer uso del modelo para insertar en nuestro
+      componente datos dinamicos, tenemos que declarar un atributo extra, que es el que hara
+      el enlace con nuestro componente, y lo mandaremos a llamar
+      dentro de la instancia del componente bajo una etiqueta template haciendo referencia
+      a esta propiedad que se manda desde el template del componente.-->
+
+      <!-- Estructura del slot:
+        <slot v-for="tarea in listado" :[nombre_propiedad]="[parte_del_modelo]"></slot>
+        
+        :[nombre_propiedad] = Nombre que le vamos a asignar, este puede ser algo asociado al modelo.
+        
+        [parte_del_modelo] = Parte del modelo que se quiere manipular, el que usara el componente,
+        En este caso es "tarea" que viene de la propiedad "listado"  que alimenta a nuestro componente.      
+      -->
+    </ul>
+  </template>
+
+
+  <!-- SCOPED SLOTS
+  Si queremos hacer uso o referencia al modelo de datos desde el HTMl y cambien de forma dinamica
+  usando los slots, se usan los scopes slots, que permiten hacer acceso a los datos. -->
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
