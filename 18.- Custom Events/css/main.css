@@ -1,0 +1,99 @@
+/*
+BEM:  Bloque - Elemento - Modificador
+*/
+
+/*Variables*/
+:root {
+   --main-bg-color: lightgray;
+   --error-bg-color: #ff1744;
+   --exito-bg-color: #4CAF50;
+   --advertencia-bg-color: #FFCA28;
+   --base-bg-color: #0d9eff;
+   --white-color: 255, 255, 255;
+}
+
+
+/*Bloques*/
+.btn {
+  margin: .5em;
+  padding: .5em 1em;
+  border: 0;
+  border-radius: 6px;
+  background-color: var(--base-bg-color);
+  color: #fff;
+}
+
+.alerta {
+   width: 500px;
+   height: auto;
+   border-radius: 6px;
+   position: absolute;
+   background-color: var(--main-bg-color);
+}
+
+/*Elementos*/
+.alerta__header {
+   text-align: center;
+   padding: .4em;
+   box-sizing: border-box;
+   font-weight: bold;
+   border-bottom: 1px solid rgba(var(--white-color), 0.4);
+}
+
+.alerta__header a{
+  float: right;
+}
+
+.alerta__contenido {
+   text-align: center;
+   padding: .8em;
+   box-sizing: border-box;
+   font-weight: bold;
+}
+.alerta__footer {
+   text-align: center;
+   padding: .4em;
+   box-sizing: border-box;
+   font-weight: bold;
+   border-top: 1px solid rgba(var(--white-color), 0.4);
+}
+
+
+/*Modificadores*/
+.alerta--error {
+   background-color: var(--error-bg-color);
+}
+.alerta--exito {
+   background-color: var(--exito-bg-color);
+}
+.alerta--advertencia {
+   background-color: var(--advertencia-bg-color);
+}
+
+.alerta--arriba-izquierda {
+   top: 0;
+   left: 0;
+}
+.alerta--arriba-derecha {
+   top: 0;
+   right: 0;
+}
+.alerta--abajo-izquierda {
+   bottom: 0;
+   left: 0;
+}
+.alerta--abajo-derecha {
+   bottom: 0;
+   right: 0;
+}
+
+
+main{
+  width: 100%;
+  height:100vh;
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
