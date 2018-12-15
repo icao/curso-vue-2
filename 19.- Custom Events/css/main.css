@@ -1,0 +1,49 @@
+/*
+BEM:  Bloque - Elemento - Modificador
+*/
+
+/*Variables*/
+:root {
+   --main-bg-color: lightgray;
+   --error-bg-color: #ff1744;
+   --exito-bg-color: #4CAF50;
+   --advertencia-bg-color: #FFCA28;
+   --base-bg-color: #0d9eff;
+   --white-color: 255, 255, 255;
+}
+
+
+/*Bloques*/
+.btn {
+  display: block;
+  margin: .5em;
+  padding: .5em 1em;
+  border: 0;
+  border-radius: 4px;
+  background-color: var(--base-bg-color);
+  color: #fff;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+
+/*Elementos*/
+
+.btn__default {
+  background-color: rgba(var(--white-color), 0.2);
+}
+
+
+/*Modificadores*/
+
+main{
+  width: 100%;
+  height:100vh;
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
