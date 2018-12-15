@@ -12,11 +12,15 @@
 </head>
 
 <body>
+  <!-- EJEMPLO COMPONENTE ALERTA, HIJO DE LA INSTANCIA VUE (PADRE) -->
+
   <main>
+    <!-- Botones interactuan en la instancia Vue -->
     <button @click="mostrarExito = true" class="btn">EXITO</button>
     <button @click="mostrarAdvertencia = true" class="btn">ADVERTENCIA</button>
     <button @click="mostrarError = true" class="btn">ERROR</button>
 
+    <!-- Componente 'alerta' Hijo -->
     <alerta @ocultar="mostrarExito = false" v-show="mostrarExito" tipo="alerta--exito" posicion="alerta--arriba-derecha">
       <template slot="header">✔️ Soy el NUEVO HEADER</template>
       <template>Este es el nuevo contenido del alerta EXITOSO</template>
@@ -36,8 +40,34 @@
     </alerta>
 
     <pre>{{$data}}</pre>
-    
+
   </main>
+
+  <!-- Template alerta-template -->
+  <template id="alerta-template">
+    <section class="alerta" :class="[tipo, posicion]">
+      <header class="alerta__header">
+        <a href="#" @click="ocultarAlerta">CERRAR</a>
+        <slot name="header">Soy un el HEADER</slot>
+      </header>
+      <div class="alerta__contenido">
+        <slot>Contenido por default :P</slot>
+        <a href="#" @click="mostrarMensaje" class="btn btn__default">Mensaje Oculto</a>
+      </div>
+      <footer class="alerta__footer">
+        <slot name="footer">Soy un FOOTER</slot>
+      </footer>
+    </section>
+  </template>
+
+  <!-- 
+  Para comunicarnos de padre a hijo, tenemos las propiedades que nos ayudan
+  a alimentar con datos de arriba hacia abajo, de padre a hijo, para hacerlo de 
+  forma inversa, es decir, de hijo a padre, nosotros necesitamos lanzar un evento.
+  Este evento es uno personalizado que tiene que ser emitido.
+  Vue nos preoporciona un metodo exclusivo para desencadenar un evento 
+  que va a ser escuchado por el padre, este metodo se llama: '$emit'
+  -->
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

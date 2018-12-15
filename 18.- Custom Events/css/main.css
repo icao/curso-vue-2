@@ -15,12 +15,17 @@ BEM:  Bloque - Elemento - Modificador
 
 /*Bloques*/
 .btn {
+  display: block;
   margin: .5em;
   padding: .5em 1em;
   border: 0;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: var(--base-bg-color);
   color: #fff;
+}
+
+a.btn {
+  text-decoration: none;
 }
 
 .alerta {
@@ -42,6 +47,7 @@ BEM:  Bloque - Elemento - Modificador
 
 .alerta__header a{
   float: right;
+  font-weight: bolder;
 }
 
 .alerta__contenido {
@@ -56,6 +62,10 @@ BEM:  Bloque - Elemento - Modificador
    box-sizing: border-box;
    font-weight: bold;
    border-top: 1px solid rgba(var(--white-color), 0.4);
+}
+
+.btn__default {
+  background-color: rgba(var(--white-color), 0.2);
 }
 
 
