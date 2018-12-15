@@ -4,23 +4,23 @@ BEM:  Bloque - Elemento - Modificador
 
 /*Variables*/
 :root {
-   --main-bg-color: lightgray;
-   --error-bg-color: #ff1744;
-   --exito-bg-color: #4CAF50;
-   --advertencia-bg-color: #FFCA28;
-   --base-bg-color: #0d9eff;
+   --vue-bg-color: #34495e;
+   --white-bg-color: #ffffff;
    --white-color: 255, 255, 255;
 }
 
 
 /*Bloques*/
 .btn {
-  display: block;
+  /* display: block; */
   margin: .5em;
-  padding: .5em 1em;
+  padding: .5em 1.8em;
   border: 0;
   border-radius: 4px;
-  background-color: var(--base-bg-color);
+  border: 15px double var(--white-bg-color);
+  font-size: 1.7em;
+  font-weight: bold;
+  background-color: var(--vue-bg-color);
   color: #fff;
 }
 
@@ -28,12 +28,29 @@ a.btn {
   text-decoration: none;
 }
 
+.contador {
+  width: 250px;
+  height: 250px;
+  border: 35px double var(--vue-bg-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.segmento {
+  margin: 0;
+  font-size: 9.5em;
+  font-weight: bold;
+  color: var(--vue-bg-color);
+}
+
+.incrementadores {
+  display: inline-block;
+}
 
 /*Elementos*/
-
-.btn__default {
-  background-color: rgba(var(--white-color), 0.2);
-}
 
 
 /*Modificadores*/

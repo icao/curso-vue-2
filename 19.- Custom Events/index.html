@@ -12,16 +12,29 @@
 </head>
 
 <body>
-  <!-- EJEMPLO COMPONENTE ALERTA, HIJO DE LA INSTANCIA VUE (PADRE) -->
+  <!-- EJEMPLO COMPONENTE BOTON COUNTER, HIJOs DE LA INSTANCIA VUe (PADRE) -->
+  <!-- Los hijos emiten un evento que hace que incremente el contador del padre -->
+  <main>
 
-  <main>  
-  <h1>{{mensaje}}</h1>
+    <div class="contador">
+      <p class="segmento">{{total}}</p>
+    </div>
+    <button @click="incrementarTotal" class="btn">Incrementar</button>
+
+    <div class="incrementadores">
+      <button-counter @incrementar="incrementarTotal"></button-counter>
+      <button-counter @incrementar="incrementarTotal"></button-counter>
+    </div>
     <pre>{{$data}}</pre>
 
   </main>
 
-  <!-- Template alerta-template -->
- 
+  <!-- Template template-button-counter-->
+  <template id="template-button-counter">
+    <button @click="incrementarContador" class="btn">{{counter}}</button>
+  </template>
+
+
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./js/app.js"></script>
