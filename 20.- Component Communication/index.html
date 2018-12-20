@@ -12,14 +12,37 @@
 </head>
 
 <body>
-
+  <!-- SIMULACION DE CARRITO DE COMPRA -->
   <main>
-    
-    <h1>{{mensaje}}</h1>
-    
+
+    <div class="contenedor">
+      <lista-productos :productos="productos"></lista-productos>
+      <carrito-compra-total></carrito-compra-total>
+    </div>
+
     <pre>{{$data}}</pre>
 
   </main>
+
+  <!-- TEMPLATE LISTA DE PRODUCTOS -->
+  <template id="template-lista-productos">
+    <ul>
+      <li v-for="(producto, index) in productos">
+        {{producto.nombre}} -
+        <strong>${{producto.precio | currency}}</strong>
+        <button class="btn btn__base" @click="quitarProducto(producto.precio)">-</button>
+        <button class="btn btn__base" @click="agregarProducto(producto.precio)">+</button>
+      </li>
+    </ul>
+  </template>
+
+  <!-- TEMPLATE CARRITO DE COMPRA -->
+  <template id="template-carrito-compra">
+    <div>
+      <h2 class="cantidad__total">TOTAL: ${{costoTotal | currency}}</h2>
+      <h3 class="cantidad__productos">Productos: {{cantidadProductos}}</h3>
+    </div>
+  </template>
 
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>

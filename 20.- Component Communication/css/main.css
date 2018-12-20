@@ -1,0 +1,49 @@
+/*
+BEM:  Bloque - Elemento - Modificador
+*/
+
+/*Variables*/
+:root {
+  --vue-blue-color: #34495e;
+  --vue-green-color: #42b983;
+  --white-bg-color: #ffffff;
+}
+
+/*Bloque*/
+.btn {
+  margin: 0.3em .5em;
+  padding: .5em 1.8em;
+  border: 0;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  font-weight: bold; 
+  text-decoration: none;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*Elemento*/
+
+.btn__base {
+  background-color: var(--vue-blue-color);
+  color: var(--white-bg-color);
+}
+
+.btn__base:hover{
+  background-color: var(--vue-green-color);
+}
+
+.cantidad__total {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.cantidad__productos {
+  font-size: 30px;
+  font-weight: 45px;
+}
+
+/*Modificador*/
