@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Nesting Components</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i" rel="stylesheet">
+  <link rel="stylesheet" href="../100.- Extra tools/style.css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+  <main>
+    <!-- Con los botones accedemos a la propiedad del padre que se llama "seleccionado" 
+    y modificamos el valor segun sea el caso, haciendo un event handler con click-->
+    <section class="contenedor__botones">
+      <button @click="seleccionado = 'listado-tareas'" class="btn">Lista de tareas</button>
+      <button @click="seleccionado = 'biografia'" class="btn">Biografia</button>
+      <button @click="seleccionado = 'direccion'" class="btn">Contacto</button>
+    </section>
+
+    <!-- Con <component> podemos mandar a llamar a los componentes de forma dinamica -->
+    <!-- Pasamos todas las propiedades que son usadas por los ocmponentes -->
+    <component :is="seleccionado" :location="direccion" :imagen="imagen" :nombre="nombre" :email="email">
+      <h2>Lisyado de tareas</h2>
+    </component>
+    <!-- Con el atributo que es bindeado ":is="nombre_componente"", definimos que componente
+    estara visualizandose -->
+
+
+    <!-- NOTA: Llamada de componentes por default -->
+    <!-- <listado-tareas><h1>Lista de pendientes</h1></listado-tareas>
+    <hr>
+    <biografia :imagen="imagen" :nombre="nombre" :email="email"></biografia>
+    <hr>
+    <direccion :location="direccion"></direccion>
+    <hr> -->
+
+    <pre>{{$data}}</pre>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
