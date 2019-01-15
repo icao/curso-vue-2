@@ -14,15 +14,56 @@
 <body>
 
   <main>
+    <!-- Funcionalidad estandar de v-model en un imput, se refleja el 'two way data binding' -->
+    <h3>Input con v-model</h3>
+    <input type="text" v-model="contrasenaInput">
+    <!-- Otra forma de expresar la funcionalidad de v-model -->
+    <h3>Descomponiendo el comportamiento del 'Two way databinding' en el Input</h3>
+    <input type="text" :value="contrasenaValue" @input="contrasenaValue = $event.target.value">
+    <hr>
 
-    <h1>{{message}}</h1>
+
+    <!-- Si intentamos encapsularlo en un componente, vue nos notifica que no debemos
+    manipular el estado de las propiedades -->
+    <h3>Componente con v-model</h3>
+    <contrasena-vmodel :password="contrasenaVmodel"></contrasena-vmodel>
+    <hr>
+
+
+    <!-- Customizando Input en un componente -->
+    <h3>Descomponiendo el comportamiento del 'Two way databinding' en el componente</h3>
+    <!-- Cuando se usa en un componente, v-model hace esto: -->
+    <!-- value en la instancia es una prop que sera pasada al atributo value dentro del componente -->
+    <!-- Con el @imput, especificamos el valor a ser escuchado para asi actualizarlo -->
+    <custom-input :value="contrasenaCustomInput" @input="contrasenaCustomInput = $event"></custom-input>
+   
+    <h3>Custom Input Component Usando v-model</h3>
+    <!-- Ahora v-model debería funcionar perfectamente con este componente: -->
+    <custom-input v-model="contrasenaCustomInput"></custom-input>
+    <hr>
+
+
+
+    <h3>Ejemplo Validacion de contrasena</h3>
+    <!-- con v-model -->
+    <!-- <contrasena-validation v-model="contrasenaComponent"></contrasena-validation> -->
+    <!-- descomponiendo v-model -->
+    <!-- <contrasena-validation :password="contrasenaComponent" @input="contrasenaComponent = $event"></contrasena-validation> -->
+    
+    <!-- ejemplo con evento de validacion y emision al momento de validar -->
+    <!-- Como es un componente customizado, esperamos recibir en el tamplate
+    el valor de el atributo 'value', esto se lo pasamos por meido de la propiedad 'pasword' -->
+    <contrasena-validation :password="contrasenaComponent" v-model="contrasenaComponent"></contrasena-validation>
+  
+
+    
+
 
     <pre>{{$data}}</pre>
 
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script> -->
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./js/app.js"></script>
