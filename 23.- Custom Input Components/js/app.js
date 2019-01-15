@@ -47,12 +47,24 @@ Vue.component('contrasena-validation', {
     <!--NOTA: Para no mmutar el estado de la propiedad, ejecutamos un evento al cual le pasamos la contrasena -->
     <input 
     :value="password" 
-    @input="comprobarContrasena($event.target.value)" >
+    @input="comprobarContrasena($event.target.value)" 
+    ref="pass">
     `,
   methods: {
     comprobarContrasena(value) {
-      console.log('%c Comprobando password 🖥️ 🔍', 'color: cyan; font-weight: bold;');
+      console.log('%c Comprobando contrasena 🖥️ 🔍', 'color: cyan; font-weight: bold;');
+      if (this.novalidas.includes(value)) {
+        console.warn('CONTRASENA NO VALIDA, INTRIDUCE OTRA');
+        this.$refs.pass.value = value = '';
+      }
+
+      // Emitimos el evento para actualizar el valor de nuestro input
       this.$emit('input', value);
+    }
+  },
+  data() { 
+    return {
+      novalidas: ['admin', 'password', 'root', 'contrasena']
     }
   }
 });

@@ -43,7 +43,6 @@
     <hr>
 
 
-
     <h3>Ejemplo Validacion de contrasena</h3>
     <!-- con v-model -->
     <!-- <contrasena-validation v-model="contrasenaComponent"></contrasena-validation> -->
@@ -55,16 +54,11 @@
     el valor de el atributo 'value', esto se lo pasamos por meido de la propiedad 'pasword' -->
     <contrasena-validation :password="contrasenaComponent" v-model="contrasenaComponent"></contrasena-validation>
   
-
-    
-
-
     <pre>{{$data}}</pre>
 
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./js/app.js"></script>
 </body>
