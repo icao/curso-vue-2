@@ -3,12 +3,74 @@ BEM:  Bloque - Elemento - Modificador
 */
 
 /*Variables*/
+:root {
+  --color-carmin-rose: #ac0050;
+  --color-pink-rose: #ffc0cb;
+  --color-blue-nice: #2196f3;
+  --color-gray-theen: #f9f9f9;
+}
 
+* {
+  box-sizing: border-box;
+}
 
 /*Bloque*/
+.header {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  padding: 8em 1em 10em 1em;
+}
 
+.resultado {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: var(--color-gray-theen);
+}
 
 /*Elemento*/
+.titulo__header {
+  font-size: 3em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
 
+.input__finder {
+  height: 50px;
+  font-size: 24px;
+  border: none;
+  border-bottom: 2px solid var(--color-blue-nice);
+  outline: none;
+}
+
+.resultado__elemento {
+  width: 210px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 1em .27em;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .26);
+}
+.contenedor__datos {
+  padding: .5em 1.5em;
+}
+
+.dato__nombre {
+  /* text-transform: capitalize; */
+  color: var(--color-blue-nice);
+}
+
+.foto__resultado {
+  width: 100%;
+  height: auto;
+}
 
 /*Modificador*/
