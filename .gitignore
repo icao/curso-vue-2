@@ -184,6 +184,7 @@ Homestead.json
 # Notepad++ backups #
 *.bak
 ### VisualStudioCode template
+.vscode/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
