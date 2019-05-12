@@ -10,5 +10,6 @@ module.exports = {
   },
   parserOptions: {
     parser: "babel-eslint"
-  }
+  },
+  lintOnSave: true
 };

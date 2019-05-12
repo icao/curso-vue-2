@@ -1,7 +1,15 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <RenderElement msg="Hola Componente usando Render" />
+    <RenderElement typeElement="header">
+      Hola Componente usando Render
+    </RenderElement>
+    <RenderElement typeElement="section">
+      Hola Componente usando Render
+    </RenderElement>
+    <RenderElement typeElement="nav">
+      Hola Componente usando Render
+    </RenderElement>
   </div>
 </template>
 
