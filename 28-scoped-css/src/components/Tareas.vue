@@ -3,13 +3,15 @@
     <h2>Tareas Pendientes</h2>
     <ul v-for="(tarea, index) in tareasPendientes" :key="tarea.actividad">
       <li @click="actualizarTarea(tarea)">
-        {{ index + 1 }} {{ tarea.actividad }}
+        {{ index + 1 }}
+        {{ tarea.actividad }}
       </li>
     </ul>
     <h2>Tareas Hechas</h2>
     <ol v-for="(tarea, index) in tareasHechas" :key="tarea.actividad">
       <li @click="actualizarTarea(tarea)">
-        {{ index + 1 }} {{ tarea.actividad }}
+        {{ index + 1 }}
+        {{ tarea.actividad }}
       </li>
     </ol>
   </div>
@@ -53,12 +55,24 @@ div {
   border-radius: 5px;
   padding: 2em;
 }
+
+ul,
+ol {
+  padding: 0;
+}
+
 ul li,
 ol li {
   text-align: start;
   cursor: pointer;
-  padding: 0.1em;
+  padding: 0.1em 0.1em;
   font-size: 1.05em;
   list-style: none;
+  border: 1px solid transparent;
+}
+
+ul li:hover,
+ol li:hover {
+  border: 1px solid #06ec79;
 }
 </style>
