@@ -29,7 +29,8 @@ export default {
         { actividad: 'Aprender Firebase', completado: true },
         { actividad: 'Terminar este capitulo Vuex', completado: true },
         { actividad: 'Hacer ejercicio de nuevo', completado: false },
-        { actividad: 'Ir al super a comprar', completado: false }
+        { actividad: 'Ir al super a comprar', completado: false },
+        { actividad: 'Planear viaje a Colombia', completado: false }
       ]
     }
   },
@@ -74,6 +75,7 @@ ol li {
   font-size: 1.05em;
   list-style: none;
   border: 1px solid transparent;
+  font-weight: bolder;
 }
 
 ul li:hover,
