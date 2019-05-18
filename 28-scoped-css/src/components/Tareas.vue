@@ -49,6 +49,11 @@ export default {
 }
 </script>
 
+<!--
+Para limitar los estilos del componente, hacemos uso del atributo 'sccoped'. 
+Esto hace que el padre no interfiera heredando sus estilos y afectando al componente.
+Al usar 'scoped' garantizamos la encapsulacion del componente.
+-->
 <style scoped>
 div {
   background-color: palegreen;
