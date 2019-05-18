@@ -1,5 +1,6 @@
 <template>
   <div>
+    <HelloWorld mensaje="Hola Mundo"></HelloWorld>
     <h2>Tareas Pendientes</h2>
     <ul v-for="(tarea, index) in tareasPendientes" :key="tarea.actividad">
       <li @click="actualizarTarea(tarea)">
@@ -18,8 +19,13 @@
 </template>
 
 <script>
+import HelloWorld from '@/components/HelloWorld'
+
 export default {
   name: 'Tareas',
+  components: {
+    HelloWorld
+  },
   data() {
     return {
       tareas: [
@@ -60,6 +66,10 @@ div {
   background-color: palegreen;
   border-radius: 5px;
   padding: 2em;
+}
+
+h2 {
+  color: #7700ff;
 }
 
 ul,
