@@ -15,7 +15,7 @@
 2. Componentes en Vue.js
    * 12-24
 3. Vue.js development workflow
-   * 25-30
+   * 25-29
 4. Manejo de estado en Vue.js
 5. Enrutamiento con Vue.js
 6. Custom directives con Vue.js
